@@ -1,8 +1,25 @@
+<div class="container">
+  <div class="row">
+  <div class="col-3" *ngFor="let product of products">
 <div class="card" style="width: 18rem;">
-    <img src="C:\Users\My PC\Desktop\Dữ liệu\rác des\PH06748.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body" [ngClass]="{
+      'boder' : isshow,
+      'shadow': isshow
+    }">
+    
+      <h5 class="card-title">{{product.name}}</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="#" class="btn btn-primary" (click)="deltailProduct(product)">View</a>
+      <input type="text" [(ngModel)]="products.name"/>
+      <button class="btn btn-danger" (click)=removeProduct(product)>Remove</button>
+      <button (click)="addclass()">Click</button>
     </div>
   </div>
+    </div>
+  </div>
+
+  <app-product-detail [product]="selectedProduct"></app-product-detail>
+</div>
+  
+  
